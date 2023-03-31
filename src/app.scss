@@ -1,0 +1,204 @@
+@use 'variables';
+input {
+    outline: none;
+    &:focus {
+        border: 2px solid variables.$primary-color;;
+    }
+}
+.container {
+    width: 100%;
+    margin: 0 auto;
+
+    &_h1{
+        font-size: 24px;
+        font-family: variables.$font-h1;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+    &_content {
+        font-size: 16px;
+        font-family: variables.$font-context;
+        color: variables.$font-color-content;
+
+        & p {
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+    }
+    &_table {
+        background-color: variables.$bg-table;
+        padding: 8px;
+        border-radius: 8px;
+        margin: 16px 0;
+
+        &_receitas {
+            & h2 {
+                font-size: 20px;
+                font-weight: 600;
+                font-family: variables.$font-table;
+                color: variables.$receitas-color;
+                margin-bottom: 16px;
+
+                &::after {
+                    content: '';
+                    width: 0px;
+                    height: 0.3rem;
+                    border-radius: 0 4px 4px 0;
+                    display: block;
+                    position: absolute;
+                    background-color: variables.$receitas-color;
+                    animation: 5s growth infinite;
+                    animation-delay: 1s;
+                }
+            }
+            &_addReceita {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                color: variables.$primary-color;
+                font-size: 14px;
+                font-family: variables.$font-table;
+                font-weight: 200;
+                margin-bottom: 8px;
+                width: fit-content;
+                & img {
+                    width: 16px;
+                }
+            }
+            &_inputReceita {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                & input[type='text'] {
+                    width: 150px;
+                    height: 24px;
+                    padding-left: 4px;
+                }
+                & input[type='number'] {
+                    width: 100px;
+                    height: 24px;
+                    padding-left: 4px;
+                }
+                & div {
+                    display: flex;
+
+                    & img {
+                        height: 20px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            &_inputDespesa{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                & input[type='text'] {
+                    width: 100px;
+                    height: 24px;
+                    padding-left: 4px;
+                }
+                & select {
+                    height: 23px;
+                    border: none;
+                }
+                & input[type='number'] {
+                    width: 70px;
+                    height: 24px;
+                    padding-left: 4px;
+                }
+                & div {
+                    display: flex;                   
+                    & img {
+                        height: 20px;
+                        cursor: pointer;
+                        
+                    }
+                }
+            }
+              
+        }
+        &_despesas {
+            h2 {
+                color: variables.$despesas-color;
+                margin-bottom: 16px;
+                margin-top: 16px;
+                &::after {
+                    content: '';
+                    width: 0px;
+                    height: 0.3rem;
+                    border-radius: 0 4px 4px 0;
+                    display: block;
+                    position: absolute;
+                    background-color: variables.$despesas-color;
+                    animation: 5s growth infinite;
+                    animation-delay: 1s;
+                }
+            }
+            
+        }
+        &_totalReceita {
+            margin-top: 8px;
+            font-weight: bold;
+            color: variables.$receitas-color;
+            text-align: end;
+        }
+        &_totalDespesa {
+            margin-top: 8px;
+            font-weight: bold;
+            color: variables.$despesas-color;
+            text-align: end;
+        }
+
+    }
+}
+.projection {
+    display: flex;
+    justify-content: space-between;
+    font-family: variables.$font-table;
+    
+    &_card {
+        background-color: variables.$bg-table;
+        padding: 8px;
+        min-width: 90px;
+        text-align: center;
+        height: 100px;
+        border-radius: 8px;
+        border: 2px solid variables.$primary-color;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        & h3 {
+            font-size: 14px;
+            font-weight: 500;
+            color: variables.$primary-color;
+           
+        }
+        & p {
+            font-size: 14px;
+            font-weight: 500;
+            color: variables.$primary-color;
+        }
+    }
+}
+@keyframes growth {
+    0% {
+        width: 0;
+    }
+    25% {
+        width: 20px;
+    }
+    50%{
+        width: 40px;
+    }
+    75% {
+        width: 25px;
+    }
+    80% {
+        width: 35px;
+    }
+    100% {
+        width: 0px;
+    }
+}
